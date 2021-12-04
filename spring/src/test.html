@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //conact, fillter,map. slice,스프레드(전개)연산자
+
+      console.log('1================ 스프레드 연산자'); //복사할때
+      
+      //깊은복사는 기존의 배열을 영향을끼친다.
+      
+      const a = [1, 2, 3];
+      const b = [...a];
+      b.push(4); //b데이터 변경
+      console.log(`a의 값은 : ${a}`); // 1,2,3
+      console.log(`b의 값은 : ${b}`); //1,2,3,4
+      const c = [...a, 4];
+      console.log(`c의 값은 : ${c}`);
+
+      console.log('2================ 추가하기'); //추가할때
+      const a2 = [1, 2, 3]; //1,2,3
+      const b2 = a2.concat(4); //push a가 변함
+      console.log(`a2의 값은 : ${a2}`);
+      console.log(`b2의 값은 : ${b2}`);
+
+      console.log('3================ 필터(걸러내기)'); //삭제할때 사용한다.
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        //bool을 return으로 값을 받는다.
+        //1일 들어오고 2가들어오고 3이들어오고
+        //아이디를 삭제할때 사용한다.
+        return n !== 1; //-> true만 걸러낸다.
+      });
+      console.log(b3);
+
+      console.log('4================ 잘라내기');
+      const a4 = [1,2,3];
+      const b4 = a4.slice(0,2); //0번째 인덱스부터 2개 잘라넨다
+      const d = [1,2,3,4,5,6,7,8,9];
+      const d1 = d.slice(2,4);
+      console.log(`b4의 값은 : ${b4}`);
+      console.log(`d1의 값은 : ${d1}`);
+      
+    </script>
+  </body>
+</html>

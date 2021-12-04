@@ -13,7 +13,7 @@ import './App.css';
       - 내부에 적는방법
       - 외부 파일에 적는 방법
       - 라이브러리 사용(부트스트랩, component-styled)
-
+  (6)부모 컴포넌트가 변경되면 자식 컴포넌트에 데이터가 변화되는지 확인한번 해본다.
 */
 
 let a = 10; //변수
@@ -22,7 +22,7 @@ const b = 20; //상수
 
 function App() {
   let c;
-  let d = undefined; //정의되지 않는 실제 값
+  let d = undefined; //정의되지 않는  실제 값
   console.log(1,c);
 
   return (
@@ -33,7 +33,7 @@ function App() {
       <div>{a === 20 ? a : b}</div>
       <h1>{b === 20 && '20입니다.'}</h1>
       <hr/>
-    </div>    
+    </div>   
   );
 }
 export default App;
