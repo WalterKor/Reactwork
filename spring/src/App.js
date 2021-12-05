@@ -1,5 +1,6 @@
 import './App.css';
-
+import React, { useState } from 'react';
+import Sub from './Sub';
 /*
 0. React엔진 - 데이터변경 감지에서 UI를 그려주는 엔진
 1. 실행 과정 (index.html) - SinglePage Application SPA (a tag 사용 불가 LINK로 대체)
@@ -15,25 +16,47 @@ import './App.css';
       - 라이브러리 사용(부트스트랩, component-styled)
   (6)부모 컴포넌트가 변경되면 자식 컴포넌트에 데이터가 변화되는지 확인한번 해본다.
 */
-
-let a = 10; //변수
-const b = 20; //상수
-
-
 function App() {
-  let c;
-  let d = undefined; //정의되지 않는  실제 값
-  console.log(1,c);
+  //다운로드 받음
+  console.log('App이 실행됨')
+  const [users, setusers] = useState([
+    {id:1, name:"홍길동"},
+    { id:2, name:"임꺽정"},
+    { id:3, name:"장보고"},
+    { id:4, name:"월터"}]
+    );
+
+  const download = ()=>{
+    let sample = [      
+      {id:1, name:"홍길동"},
+      { id:2, name:"임꺽정"},
+      { id:3, name:"장보고"},
+      { id:4, name:"월터"}
+    ];
+    setusers(sample); //데이터가 같지만 레퍼런스가 다르다
+  }
+
+  // const [number, setnumber] = useState(1); //React안에 hooks 라이브러리 상태값이 된다.  
+  // //let number = 1; 상태값이 아님
+
+  // const add = ()=>{
+  //   setnumber(number+1);//리엑트한테 number값 변경할게 요청    
+  //   console.log("add", number);    
+  // }
+  //랜더링 시점 = 상태값이 변경 
+  //상태가 변경되면 전체가 Rebulid가 된다. 
+
 
   return (
-    /*안에들어가는 문법은 JSX문법을 따라야한다.
-      하나의 tag만 리턴해준다.
-    */
-    <div className="box-style">
-      <div>{a === 20 ? a : b}</div>
-      <h1>{b === 20 && '20입니다.'}</h1>
-      <hr/>
-    </div>   
+    <div>      
+        <button onClick={download}>다운로드</button> 
+        {users.map((u)=>(
+          <h1>
+            {u.id}, {u.name}
+          </h1>
+        ))}
+        <Sub/>
+    </div>
   );
 }
 export default App;
